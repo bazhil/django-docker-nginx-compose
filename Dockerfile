@@ -4,11 +4,11 @@ ENV PATH="/scripts:${PATH}"
 
 COPY ./requirements.txt /requirements.txt
 RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
-RUN pip inatall -r /requirements.txt
-RUN apr del .tmp
+RUN pip install -r /requirements.txt
+RUN apk del .tmp
 
 RUN mkdir /app
-COPY ./app /app
+COPY app/app /app
 WORKDIR /app
 COPY ./scripts /scripts
 
